@@ -1,4 +1,4 @@
-Analyzr::Application.routes.draw do
+Postr::Application.routes.draw do
 
   root :to => "home#index"
   get "home/index"

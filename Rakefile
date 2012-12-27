@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Analyzr::Application.load_tasks
+Postr::Application.load_tasks
