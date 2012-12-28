@@ -53,20 +53,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # POST /users/1/reloadfromtwitter
-  # POST /users/1/reloadfromtwitter.json
-  def reloadFromTwitter
-    @user = User.find(params[:id])
-
-    Twitter::reload_user(@user)
-    result = Twitter::get_friends(@user.twitter_id)
-
-    respond_to do |format|
-      format.html { redirect_to @user, notice: "User was successfully re-loaded from Twitter. #{result}" } 
-      format.json { render json: @user }
-    end
-  end
-
   # PUT /users/1
   # PUT /users/1.json
   def update

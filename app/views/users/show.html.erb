@@ -1,30 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<table>
-  <tr>
-    <td><%= image_tag @user.image %></td>
-    <td>
-      <h1><%= @user.name %></h1>
-      <h2>@<%= @user.screen_name %></h2>
-      <%= @user.description %>
-      <br />
-      <%= @user.location %> - <%= link_to @user.url, @user.url, {:target => "_blank"} %>
-    </td>
-    <td>
-      <table>
-        <tr><td><%= @user.statuses_count %> tweets</td></tr>
-        <tr><td><%= @user.friends_count %> following</td></tr>
-        <tr><td><%= @user.followers_count %> followers</td></tr>
-        <tr><td><%= @user.favourites_count %> favourites</td></tr>
-        <tr><td><%= @user.listed_count %> times listed</td></tr>
-      </table>
-    </td>
-  </tr>
-</table>
-
-<br />
-<br />
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %> |
-<%= link_to '(Re)load from Twitter', reloadFromTwitter_user_path(@user), :method => :post %>
+<%= link_to 'Back', users_path %>
