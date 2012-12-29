@@ -40,3 +40,7 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+gem 'figaro' #for environment variables
