@@ -17,10 +17,27 @@ class User < ActiveRecord::Base
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     
     unless user
-      user = User.create( name: auth.extra.raw_info.name,
+      user = User.create!( name: auth.extra.raw_info.name,
                           provider: auth.provider,
                           uid: auth.uid,
                           email: auth.info.email,
+                          password: Devise.friendly_token[0,20]
+                        )
+    end
+    
+    return user
+  end
+  
+  # Find user when authenticated via Twitter
+  # Create a new user if it doesn't exist already
+  def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    
+    unless user
+      user = User.create!( name: auth.info.name,
+                          provider: auth.provider,
+                          uid: auth.uid,
+                          email: auth.info.nickname + "@twitter.com", #placeholder for now as Twitter API doesn't expose email TODO rewrite app to not depend on email or let user add it
                           password: Devise.friendly_token[0,20]
                         )
     end

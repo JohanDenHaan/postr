@@ -208,6 +208,8 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   config.omniauth :facebook, ENV['FACEBOOK_POSTR_KEY'], ENV['FACEBOOK_POSTR_SECRET'],
                   :scope => 'email'
+  config.omniauth :twitter, ENV['TWITTER_POSTR_KEY'], ENV['TWITTER_POSTR_SECRET'],
+                  :x_auth_access_type => 'write'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
